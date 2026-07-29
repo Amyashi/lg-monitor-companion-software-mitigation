@@ -23,14 +23,17 @@ jobs:
       BUILDER: build_lg_monitor_companion_software_guides.py
       HOME_RELEASE: LG_Monitor_Companion_Software_Mitigation_Windows_11_Home_v1.0.0.pdf
       PRO_RELEASE: LG_Monitor_Companion_Software_Mitigation_Windows_11_Pro_v1.0.0.pdf
-      REBUILT_DIR: ${{ runner.temp }}/lg-monitor-guides
-      HOME_REBUILT: ${{ runner.temp }}/lg-monitor-guides/LG_Monitor_Companion_Software_Mitigation_Windows_11_Home_v1.0.0.pdf
-      PRO_REBUILT: ${{ runner.temp }}/lg-monitor-guides/LG_Monitor_Companion_Software_Mitigation_Windows_11_Pro_v1.0.0.pdf
     steps:
       - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
+
+      - name: Define isolated rebuild paths
+        run: |
+          echo "REBUILT_DIR=$RUNNER_TEMP/lg-monitor-guides" >> "$GITHUB_ENV"
+          echo "HOME_REBUILT=$RUNNER_TEMP/lg-monitor-guides/$HOME_RELEASE" >> "$GITHUB_ENV"
+          echo "PRO_REBUILT=$RUNNER_TEMP/lg-monitor-guides/$PRO_RELEASE" >> "$GITHUB_ENV"
 
       - name: Set up Python
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
