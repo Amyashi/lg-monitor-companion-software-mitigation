@@ -5,8 +5,12 @@ All notable changes are documented here. Dates use ISO 8601
 
 ## [Unreleased]
 
-Planned first public release: `v1.0.0`. No public GitHub release is represented
-by this entry while the repository and release remain private.
+No changes recorded.
+
+## [1.0.0] - 2026-07-29
+
+Initial controlled-author release of the Windows 11 Home and Windows 11 Pro
+LG monitor companion-software mitigation guides.
 
 ### Added
 
@@ -75,14 +79,5 @@ by this entry while the repository and release remain private.
 - Removed public email, Discord, direct-message, and community contact routes.
 - Prepared a clean-history repository under the model-neutral project slug.
 
-### Publication gates
-
-- Keep the repository private until Amyashi explicitly approves publication.
-- Complete the manual accessibility review in `ACCESSIBILITY.md` for both
-  edition artifacts and companions.
-- Run the release validator from a clean staged fixture against both editions.
-- Confirm that every retained observation is backed by a sanitized source
-  record or reclassify it before release.
-- Complete maintainer approval of the final Home and Pro rendered artifacts.
-
-[Unreleased]: https://github.com/Amyashi/lg-monitor-companion-software-mitigation/commits/main
+[Unreleased]: https://github.com/Amyashi/lg-monitor-companion-software-mitigation/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/Amyashi/lg-monitor-companion-software-mitigation/releases/tag/v1.0.0

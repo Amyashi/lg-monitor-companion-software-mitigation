@@ -2,10 +2,8 @@
 
 ## Supported material
 
-Before the first public release, security corrections apply to the current
-`main` branch and both Windows edition release artifacts. After a release is
-published, security corrections are provided for the latest published Home and
-Pro guides and the current `main` branch. Earlier releases may receive
+Security corrections are provided for the latest published Home and Pro guides
+and the current `main` branch. Earlier releases may receive
 documentation corrections when a serious risk would otherwise remain unclear,
 but they are not independently maintained.
 
