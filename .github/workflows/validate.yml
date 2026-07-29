@@ -1,0 +1,75 @@
+name: Build and validate guides
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Build and validate Home and Pro PDFs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      BUILDER: build_lg_monitor_companion_software_guides.py
+      HOME_RELEASE: LG_Monitor_Companion_Software_Mitigation_Windows_11_Home_v1.0.0.pdf
+      PRO_RELEASE: LG_Monitor_Companion_Software_Mitigation_Windows_11_Pro_v1.0.0.pdf
+      REBUILT_DIR: ${{ runner.temp }}/lg-monitor-guides
+      HOME_REBUILT: ${{ runner.temp }}/lg-monitor-guides/LG_Monitor_Companion_Software_Mitigation_Windows_11_Home_v1.0.0.pdf
+      PRO_REBUILT: ${{ runner.temp }}/lg-monitor-guides/LG_Monitor_Companion_Software_Mitigation_Windows_11_Pro_v1.0.0.pdf
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: "3.12.13"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install pinned dependencies
+        run: >-
+          python -m pip install --disable-pip-version-check
+          --only-binary=:all: --require-hashes -r requirements.txt
+
+      - name: Check installed dependency consistency
+        run: python -m pip check
+
+      - name: Validate checked-in release artifacts
+        run: |
+          python scripts/validate_pdf.py "$HOME_RELEASE" "$PRO_RELEASE" \
+            --check-tracked-pdf-set \
+            --check-tracked-text-disclosures \
+            --source "$BUILDER"
+
+      - name: Verify release checksums
+        run: sha256sum --check SHA256SUMS.txt
+
+      - name: Build both editions into an isolated directory
+        run: |
+          mkdir -p "$REBUILT_DIR"
+          python "$BUILDER" --edition all --output-dir "$REBUILT_DIR"
+
+      - name: Validate rebuilt artifacts
+        run: |
+          python scripts/validate_pdf.py "$HOME_REBUILT" "$PRO_REBUILT" \
+            --source "$BUILDER"
+
+      - name: Verify byte-for-byte reproducibility for both editions
+        run: |
+          sha256sum "$HOME_RELEASE" "$HOME_REBUILT"
+          sha256sum "$PRO_RELEASE" "$PRO_REBUILT"
+          cmp --silent "$HOME_RELEASE" "$HOME_REBUILT"
+          cmp --silent "$PRO_RELEASE" "$PRO_REBUILT"

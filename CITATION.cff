@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you reference these guides, please credit the author and identify the version used."
+title: "LG Monitor Companion-Software Mitigation Guides for Windows 11 Home and Pro"
+type: software
+authors:
+  - name: "Amyashi"
+version: "1.0.0"
+repository-code: "https://github.com/Amyashi/lg-monitor-companion-software-mitigation"
+url: "https://github.com/Amyashi/lg-monitor-companion-software-mitigation"
+abstract: >-
+  Independently authored, edition-specific Windows 11 Home and Pro runbooks
+  for identifying, removing, verifying, and, when justified, mitigating the
+  recurrence of LG monitor companion software. The exact tested Microsoft
+  Store package is LGElectronics.LGMonitorApp; other package identities and
+  delivery paths require separate confirmation.
+keywords:
+  - "Windows 11 Home"
+  - "Windows 11 Pro"
+  - "LG monitor"
+  - "AppLocker"
+  - "Microsoft Defender"
+  - "least privilege"
+  - "companion software"
+  - "package removal"
+preferred-citation:
+  type: report
+  title: "LG Monitor Companion-Software Mitigation Guides for Windows 11 Home and Pro"
+  authors:
+    - family-names: "Amyashi"
+  year: 2026
+  version: "1.0.0"
+  url: "https://github.com/Amyashi/lg-monitor-companion-software-mitigation"

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security reporting instructions
+    url: https://github.com/Amyashi/lg-monitor-companion-software-mitigation/blob/main/SECURITY.md
+    about: Use GitHub private vulnerability reporting. Never disclose sensitive evidence publicly.

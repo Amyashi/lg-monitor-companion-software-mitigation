@@ -1,0 +1,47 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+tmp/
+*.egg-info/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Private or raw validation evidence
+evidence/private/
+evidence/raw/
+private/
+logs/
+*.log
+*.etl
+*.evtx
+*.dmp
+*.dump
+*.mdmp
+*.core
+*.reg
+
+# Screenshots, archives, and temporary exports are not public evidence
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.zip
+*.7z
+*.bak
+*.tmp
+~$*
+.DS_Store
+Thumbs.db
