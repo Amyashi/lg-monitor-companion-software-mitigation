@@ -1,6 +1,6 @@
 # Direct runtime and release-validation dependencies.
 #
-# Regenerate requirements.txt with pip-tools 7.5.2 under Python 3.12.13:
+# Regenerate requirements.txt with pip-tools 7.6.0 under Python 3.12.13:
 #   python -m piptools compile --generate-hashes --resolver=backtracking requirements.in
 charset-normalizer==3.4.9
 pillow==12.3.0
