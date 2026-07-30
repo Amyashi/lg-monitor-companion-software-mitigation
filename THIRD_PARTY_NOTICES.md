@@ -28,6 +28,16 @@ ReportLab's pinned dependency set includes Pillow and charset-normalizer. Review
 - Pillow: <https://github.com/python-pillow/Pillow/blob/12.3.0/LICENSE>
 - charset-normalizer: <https://github.com/jawah/charset_normalizer/blob/3.4.9/LICENSE>
 
+## Security automation
+
+Repository automation uses pip-audit 2.10.1 under the Apache License 2.0 and
+GitHub's Dependency Review Action 5.0.0 under the MIT License. Both are isolated
+from the PDF build environment:
+
+- pip-audit: <https://github.com/pypa/pip-audit/blob/v2.10.1/LICENSE>
+- Dependency Review Action:
+  <https://github.com/actions/dependency-review-action/blob/v5.0.0/LICENSE>
+
 ## Version-specific review
 
 Dependency versions are recorded in the repository's build manifests. Before distributing a rebuilt artifact or dependency bundle, inspect the license metadata and license files included with the exact versions used. This notice is an attribution aid, not a substitute for those controlling terms.

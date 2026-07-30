@@ -131,7 +131,10 @@ credentials, tokens, or unredacted diagnostic bundles.
   ReportLab source for both editions.
 - `scripts/validate_pdf.py` - read-only release, disclosure, navigation, font,
   link, and required-content checks.
-- `requirements.txt` - pinned Python build dependencies.
+- `requirements.in` - direct Python build dependencies.
+- `requirements.txt` - complete version- and hash-locked build dependency graph.
+- `.github/audit/requirements.in` and `.github/audit/requirements.txt` -
+  isolated, hash-locked vulnerability-scanner toolchain.
 - `SECURITY.md` - private security-reporting and evidence-handling rules.
 - `ACCESSIBILITY.md` - accessible-use information and manual review gates.
 - `CONTRIBUTING.md` - controlled-author contribution process.
