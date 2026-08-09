@@ -19,7 +19,7 @@ The current builder uses the standard PDF Base 14 Helvetica and Courier families
 The validation process uses pypdf, which is distributed under the BSD 3-Clause License. Review the license shipped with the exact installed distribution and the upstream project:
 
 - Project: <https://pypi.org/project/pypdf/>
-- Version-pinned upstream license: <https://github.com/py-pdf/pypdf/blob/6.14.2/LICENSE>
+- Version-pinned upstream license: <https://github.com/py-pdf/pypdf/blob/6.15.0/LICENSE>
 
 ## Pillow and charset-normalizer
 
