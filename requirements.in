@@ -2,7 +2,7 @@
 #
 # Regenerate requirements.txt with pip-tools 7.6.0 under Python 3.12.13:
 #   python -m piptools compile --generate-hashes --resolver=backtracking requirements.in
-charset-normalizer==3.4.9
+charset-normalizer==3.5.0
 pillow==12.3.0
 pypdf==6.15.0
 reportlab==5.0.0
